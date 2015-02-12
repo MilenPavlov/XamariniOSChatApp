@@ -78,11 +78,18 @@ namespace XamChat.Core.Fakes
 
             return new[]
             {
-                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Hey" },
-                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "What's up?" },
-                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Have you seen that new movie?" },
-                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "It's great!" },
+                //new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Hey" },
+                //new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "What's up?" },
+                //new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Have you seen that new movie?" },
+                //new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "It's great!" },
+                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Hey", Date = DateTime.Now.AddDays(-1).AddMinutes(-5) },
+                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "What's up?", Date = DateTime.Now.AddDays(-1) },
+                new Message { Id = 3, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Have you seen that new movie?", Date = DateTime.Now.AddMinutes(-1) },
+                new Message { Id = 4, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "It's great!", Date = DateTime.Now.AddSeconds(-30) },
+                new Message { Id = 5, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Cool", Date = DateTime.Now.AddSeconds(-15) },
             };
+
+            
         }
 
         public async Task<Message> SendMessage(Message message)

@@ -19,7 +19,7 @@ namespace XamChat.iOS
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			TableView.Source = new TableSource();
+			TableView.Source = new TableSource(this);
 		}
 
 		public async override void ViewWillAppear(bool animated)
@@ -43,6 +43,12 @@ namespace XamChat.iOS
 
             const string CellName = "ConversationCell";
             readonly MessageViewModel messageViewModel = ServiceContainer.Resolve<MessageViewModel>();
+            private readonly ConversationsController _controller;
+
+            public TableSource(ConversationsController controller)
+            {
+                _controller = controller;
+            }
 
             public override nint RowsInSection(UITableView tableView, nint section)
             {
@@ -62,6 +68,14 @@ namespace XamChat.iOS
                 cell.TextLabel.Text = conversation.Username;
                 cell.DetailTextLabel.Text = conversation.LastMessage;
                 return cell;
+            }
+
+            public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+            {
+                //base.RowSelected(tableView, indexPath);
+                var conversation = messageViewModel.Conversations[indexPath.Row];
+                messageViewModel.Conversation = conversation;
+                _controller.PerformSegue("OnConversation", _controller);
             }
         }	
 	}	

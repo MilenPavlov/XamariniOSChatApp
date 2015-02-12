@@ -1,4 +1,6 @@
-﻿namespace XamChat.Core.Models
+﻿using System;
+
+namespace XamChat.Core.Models
 {
     public class Message
     {
@@ -8,5 +10,6 @@
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Text { get; set; }
+        public DateTime Date { get; set; }
     }
 }
