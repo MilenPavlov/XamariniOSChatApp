@@ -52,6 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\BaseActivity.cs" />
+    <Compile Include="Activities\ConversationsActivity.cs" />
+    <Compile Include="Activities\LoginActivity.cs" />
+    <Compile Include="Adapters\ConversationsAdapter.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +63,12 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Login.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Conversations.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ConversationsListItem.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
