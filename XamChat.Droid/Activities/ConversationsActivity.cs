@@ -47,5 +47,20 @@ namespace XamChat.Droid.Activities
                DisplayError(ex);
             }
         }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ConversationsMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Resource.Id.addFriendMenu)
+            {
+                StartActivity(typeof(FriendsActivity));
+            }
+            return base.OnOptionsItemSelected(item);
+        }
     }
 }

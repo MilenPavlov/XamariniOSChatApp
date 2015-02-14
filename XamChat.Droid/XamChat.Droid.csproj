@@ -53,8 +53,10 @@
   <ItemGroup>
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\ConversationsActivity.cs" />
+    <Compile Include="Activities\FriendsActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Adapters\ConversationsAdapter.cs" />
+    <Compile Include="Adapters\FriendsAdapter.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +73,15 @@
     <AndroidResource Include="Resources\layout\ConversationsListItem.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\menu\ConversationsMenu.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Friends.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\FriendsListItem.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -80,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\drawable\chaticon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamChat.Core\XamChat.Core.csproj">
