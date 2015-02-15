@@ -63,8 +63,8 @@ namespace XamChat.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06000d
-			public const int addFriendMenu = 2131099661;
+			// aapt resource value: 0x7f060014
+			public const int addFriendMenu = 2131099668;
 			
 			// aapt resource value: 0x7f06000c
 			public const int button_Login = 2131099660;
@@ -87,8 +87,17 @@ namespace XamChat.Droid
 			// aapt resource value: 0x7f060003
 			public const int listView_friendsList = 2131099651;
 			
+			// aapt resource value: 0x7f06000d
+			public const int listView_messageList = 2131099661;
+			
+			// aapt resource value: 0x7f06000f
+			public const int messageText = 2131099663;
+			
 			// aapt resource value: 0x7f06000a
 			public const int password = 2131099658;
+			
+			// aapt resource value: 0x7f06000e
+			public const int sendButton = 2131099662;
 			
 			// aapt resource value: 0x7f060007
 			public const int textView1 = 2131099655;
@@ -101,6 +110,18 @@ namespace XamChat.Droid
 			
 			// aapt resource value: 0x7f060004
 			public const int textView_friendName = 2131099652;
+			
+			// aapt resource value: 0x7f060011
+			public const int textView_myMessageDate = 2131099665;
+			
+			// aapt resource value: 0x7f060010
+			public const int textView_myMessageText = 2131099664;
+			
+			// aapt resource value: 0x7f060013
+			public const int textView_theirMessageDate = 2131099667;
+			
+			// aapt resource value: 0x7f060012
+			public const int textView_theirMessageText = 2131099666;
 			
 			// aapt resource value: 0x7f060008
 			public const int username = 2131099656;
@@ -132,6 +153,15 @@ namespace XamChat.Droid
 			
 			// aapt resource value: 0x7f030004
 			public const int Login = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int Messages = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int MyMessageListItem = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int TheirMessageListItem = 2130903047;
 			
 			static Layout()
 			{

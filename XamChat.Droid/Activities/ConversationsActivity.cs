@@ -32,6 +32,11 @@ namespace XamChat.Droid.Activities
         {
             conversationsListView = FindViewById<ListView>(Resource.Id.listView_conversations);
             conversationsListView.Adapter = conversationsAdapter = new ConversationsAdapter(this);
+            conversationsListView.ItemClick += (sender, args) =>
+            {
+                viewModel.Conversation = conversationsAdapter[args.Position];
+                StartActivity(typeof(MessageActivity));
+            };
         }
 
         protected async override void OnResume()
