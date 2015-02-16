@@ -8,6 +8,7 @@ using XamChat.Core;
 using XamChat.Core.ViewModels;
 using XamChat.Core.Abstract;
 using XamChat.Core.Fakes;
+using XamChat.iOS.Azure;
 
 
 namespace XamChat.iOS
@@ -34,7 +35,7 @@ namespace XamChat.iOS
 
 
 			ServiceContainer.Register<ISettings> (() => new FakeSettings ());
-			ServiceContainer.Register<IWebService> (() => new FakeWebService ());
+			ServiceContainer.Register<IWebService> (() => new AzureWebService());
 
 			return true;
 		}

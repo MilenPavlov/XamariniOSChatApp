@@ -29,7 +29,7 @@ namespace XamChat.Core.Fakes
 
             return new User
             {
-                Id = 1,
+                Id = "1",
                 Username = username
             };
         }
@@ -41,26 +41,26 @@ namespace XamChat.Core.Fakes
             return user;
         }
 
-        public async Task<User[]> GetFriends(int userId)
+        public async Task<User[]> GetFriends(string userId)
         {
             await Sleep();
 
             return new User[]
             {
-                new User {Id = 2, Username = "bobama"},
-                new User {Id = 3, Username = "bobloblaw"},
-                new User {Id = 4, Username = "gmichael"}
+                new User {Id = "2", Username = "bobama"},
+                new User {Id = "3", Username = "bobloblaw"},
+                new User {Id = "4", Username = "gmichael"}
             };
         }
 
-        public async Task<User> AddFriend(int userId, string username)
+        public async Task<User> AddFriend(string userId, string username)
         {
             await Sleep();
 
-            return new User {Id = 4, Username = username};
+            return new User {Id = "4", Username = username};
         }
 
-        public async Task<Conversation[]> GetConversations(int userId)
+        public async Task<Conversation[]> GetConversations(string userId)
         {
             await Sleep();
 
@@ -82,11 +82,10 @@ namespace XamChat.Core.Fakes
                 //new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "What's up?" },
                 //new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Have you seen that new movie?" },
                 //new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "It's great!" },
-                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Hey", Date = DateTime.Now.AddDays(-1).AddMinutes(-5) },
-                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "What's up?", Date = DateTime.Now.AddDays(-1) },
-                new Message { Id = 3, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Have you seen that new movie?", Date = DateTime.Now.AddMinutes(-1) },
-                new Message { Id = 4, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "It's great!", Date = DateTime.Now.AddSeconds(-30) },
-                new Message { Id = 5, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Cool", Date = DateTime.Now.AddSeconds(-15) },
+                new Message { Id = 2, ConversationId = conversationId, UserId = "1", Username = "testuser", Text = "What's up?", Date = DateTime.Now.AddDays(-1) },
+                new Message { Id = 3, ConversationId = conversationId, UserId = "2", Username = "bobama", Text = "Have you seen that new movie?", Date = DateTime.Now.AddMinutes(-1) },
+                new Message { Id = 4, ConversationId = conversationId, UserId = "1", Username = "testuser", Text = "It's great!", Date = DateTime.Now.AddSeconds(-30) },
+                new Message { Id = 5, ConversationId = conversationId, UserId = "2", Username = "bobama", Text = "Cool", Date = DateTime.Now.AddSeconds(-15) },
             };
 
             

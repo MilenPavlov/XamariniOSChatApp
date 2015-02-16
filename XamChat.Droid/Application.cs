@@ -5,6 +5,7 @@ using XamChat.Core;
 using XamChat.Core.Abstract;
 using XamChat.Core.Fakes;
 using XamChat.Core.ViewModels;
+using XamChat.Droid.Azure;
 
 namespace XamChat.Droid
 {
@@ -24,7 +25,7 @@ namespace XamChat.Droid
             ServiceContainer.Register<RegisterViewModel>(() => new RegisterViewModel());
 
             ServiceContainer.Register<ISettings>(() => new FakeSettings());
-            ServiceContainer.Register<IWebService>(() => new FakeWebService());
+            ServiceContainer.Register<IWebService>(() => new AzureWebService());
         }
     }
 }

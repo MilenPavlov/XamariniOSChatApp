@@ -43,12 +43,25 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.WindowsAzure.Mobile">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Microsoft.WindowsAzure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.Auth.Android">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Xamarin.Auth.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\BaseActivity.cs" />
@@ -60,6 +73,7 @@
     <Compile Include="Adapters\FriendsAdapter.cs" />
     <Compile Include="Adapters\MessagesAdapter.cs" />
     <Compile Include="Application.cs" />
+    <Compile Include="Azure\AzureWebService.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,7 +124,12 @@
       <Name>XamChat.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <XamarinComponentReference Include="azure-mobile-services">
+      <Visible>False</Visible>
+      <Version>1.1.0</Version>
+    </XamarinComponentReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
