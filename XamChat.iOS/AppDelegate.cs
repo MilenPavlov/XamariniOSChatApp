@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Foundation;
 using UIKit;
 using XamChat.Core;
 using XamChat.Core.ViewModels;
 using XamChat.Core.Abstract;
 using XamChat.Core.Fakes;
-using XamChat.iOS.Azure;
+//using XamChat.iOS.Azure;
 
 
 namespace XamChat.iOS
@@ -35,10 +35,19 @@ namespace XamChat.iOS
 
 
 			ServiceContainer.Register<ISettings> (() => new FakeSettings ());
-			ServiceContainer.Register<IWebService> (() => new AzureWebService());
+			//ServiceContainer.Register<IWebService> (() => new AzureWebService());
+
+		    //Task.Run(async()=> await LoadData());
 
 			return true;
 		}
+
+        //private async Task LoadData()
+        //{
+        //    var service = ServiceContainer.Resolve<IWebService>() as AzureWebService;
+        //    if(service != null)
+        //        await service.LoadData();
+        //}
 		
 		// This method is invoked when the application is about to move from active to inactive state.
 		// OpenGL applications should use this method to pause.

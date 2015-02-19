@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Runtime;
 using XamChat.Core;
@@ -15,7 +16,7 @@ namespace XamChat.Droid
         public Application(IntPtr javaReference, JniHandleOwnership transfer):base(javaReference, transfer)
         {}
 
-        public override void OnCreate()
+        public async override void OnCreate()
         {
            //view models
 
@@ -26,6 +27,15 @@ namespace XamChat.Droid
 
             ServiceContainer.Register<ISettings>(() => new FakeSettings());
             ServiceContainer.Register<IWebService>(() => new AzureWebService());
+
+            await LoadData();
+        }
+
+        private async Task LoadData()
+        {
+            var service = ServiceContainer.Resolve<IWebService>() as AzureWebService;
+            if (service != null)
+                await service.LoadData();
         }
     }
 }

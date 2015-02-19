@@ -21,7 +21,7 @@ namespace XamChat.Droid.Adapters
         }
         public override long GetItemId(int position)
         {
-            return messageViewModel.Messages[position].Id;
+            return position;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)

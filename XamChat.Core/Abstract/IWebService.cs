@@ -17,7 +17,7 @@ namespace XamChat.Core.Abstract
         Task<User> AddFriend(string userId, string username);
 
         Task<Conversation[]> GetConversations(string userId);
-        Task<Message[]> GetMessages(int conversationId);
+        Task<Message[]> GetMessages(string conversationId);
         Task<Message> SendMessage(Message message);
     }
 }
