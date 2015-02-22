@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using XamChat.Core.Abstract;
+using XamChat.Core.Azure;
 using XamChat.Core.Models;
 
 namespace XamChat.Droid.Azure
@@ -44,16 +46,12 @@ namespace XamChat.Droid.Azure
                 var f1 = new Friend()
                 {
                     MyId = me.Id,
-                    Username = friend.Username,
-                    //UserId = "2",
-                 
+                    Username = friend.Username,               
                 };
                 var f2 = new Friend()
                 {
                     MyId = friend.Id,
-                    Username = me.Username,
-                   // UserId = "1",
-                  
+                    Username = me.Username,                 
                 };
 
                 await friends.InsertAsync(f1);
@@ -121,34 +119,68 @@ namespace XamChat.Droid.Azure
             return user;
         }
 
-        public Task<User> Register(User user)
+        public async Task<User> Register(User user)
         {
-            throw new NotImplementedException();
+            await client.GetTable<User>().InsertAsync(user);
+            return user;
         }
 
-        public Task<User[]> GetFriends(string userId)
+        public async Task<User[]> GetFriends(string userId)
         {
-            throw new NotImplementedException();
+            var myFriendsList = await client.GetTable<Friend>()
+                .Where(x => x.MyId == userId).ToListAsync();
+
+            return myFriendsList.Select(x => new User
+            {
+                Id = x.UserId, Username = x.Username
+            }).ToArray();
+
         }
 
-        public Task<User> AddFriend(string userId, string username)
+        public async Task<User> AddFriend(string userId, string username)
         {
-            throw new NotImplementedException();
+            var friend = new Friend
+            {
+                MyId = userId,
+                Username = username
+            };
+
+            await client.GetTable<Friend>().InsertAsync(friend);
+
+            return new User{Id = friend.UserId, Username = friend.Username};
         }
 
-        public Task<Conversation[]> GetConversations(string userId)
+        public async Task<Conversation[]> GetConversations(string userId)
         {
-            throw new NotImplementedException();
+            var myConversationsList = await client.GetTable<Conversation>()
+                .Where(x => x.MyId == userId).ToListAsync();
+
+            return myConversationsList.ToArray();
         }
 
-        public Task<Message[]> GetMessages(string conversationId)
+        public async Task<Message[]> GetMessages(string conversationId)
         {
-            throw new NotImplementedException();
+            var myMessagesList = await client.GetTable<Message>()
+                .Where(x => x.ConversationId == conversationId).ToListAsync();
+
+            return myMessagesList.ToArray();
         }
 
-        public Task<Message> SendMessage(Message message)
+        public async Task<Message> SendMessage(Message message)
         {
-            throw new NotImplementedException();
+            await client.GetTable<Message>().InsertAsync(message);
+
+            return message;
+        }
+
+        public async Task RefisterPush(string userId, string deviceToken)
+        {
+            await client.GetTable<Device>()
+                .InsertAsync(new Device
+                {
+                    UserId = userId,
+                    DeviceToken = deviceToken
+                });
         }
     }
 }

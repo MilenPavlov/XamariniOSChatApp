@@ -9,7 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using PushSharp.Client;
 using XamChat.Core.ViewModels;
+using XamChat.Droid.GCM;
 
 namespace XamChat.Droid.Activities
 {
@@ -51,6 +53,8 @@ namespace XamChat.Droid.Activities
             {
                 await viewModel.Login();
                 
+                PushClient.Register(this, PushConstants.ProjectNumber);
+
                 StartActivity(typeof(ConversationsActivity));
             }
             catch (Exception ex)

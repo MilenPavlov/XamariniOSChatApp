@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Abstract\ISettings.cs" />
     <Compile Include="Abstract\IWebService.cs" />
+    <Compile Include="Azure\Device.cs" />
     <Compile Include="Fakes\FakeSettings.cs" />
     <Compile Include="Fakes\FakeWebService.cs" />
     <Compile Include="Models\Message.cs" />

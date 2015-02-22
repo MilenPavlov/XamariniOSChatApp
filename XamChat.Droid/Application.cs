@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Runtime;
+using PushSharp.Client;
 using XamChat.Core;
 using XamChat.Core.Abstract;
 using XamChat.Core.Fakes;
@@ -28,7 +29,9 @@ namespace XamChat.Droid
             ServiceContainer.Register<ISettings>(() => new FakeSettings());
             ServiceContainer.Register<IWebService>(() => new AzureWebService());
 
-            await LoadData();
+            //await LoadData();
+            PushClient.CheckDevice(this);
+            PushClient.CheckManifest(this);
         }
 
         private async Task LoadData()

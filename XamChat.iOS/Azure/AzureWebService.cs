@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using XamChat.Core.Abstract;
 using XamChat.Core.Models;
-using XamChat.Droid.Azure;
+
 
 namespace XamChat.iOS.Azure
 {

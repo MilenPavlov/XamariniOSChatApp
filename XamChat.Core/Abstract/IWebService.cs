@@ -19,5 +19,6 @@ namespace XamChat.Core.Abstract
         Task<Conversation[]> GetConversations(string userId);
         Task<Message[]> GetMessages(string conversationId);
         Task<Message> SendMessage(Message message);
+        Task RefisterPush(string userId, string deviceToken);
     }
 }

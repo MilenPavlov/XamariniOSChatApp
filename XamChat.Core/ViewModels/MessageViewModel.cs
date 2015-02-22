@@ -86,6 +86,7 @@ namespace XamChat.Core.ViewModels
                 {
                     UserId = settings.User.Id,
                     ConversationId = Conversation.Id,
+                    ToId = Conversation.UserId,
                     Text = Text
                 });
 

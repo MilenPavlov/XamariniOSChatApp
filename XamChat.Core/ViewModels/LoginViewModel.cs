@@ -39,5 +39,15 @@ namespace XamChat.Core.ViewModels
                 IsBusy = false;
             }
         }
+
+        public async Task RegisterPush(string deviceToken)
+        {
+            if (settings.User == null)
+            {
+                throw new Exception("User is null");
+            }
+
+            await service.RefisterPush(settings.User.Id, deviceToken);
+        }
     }
 }

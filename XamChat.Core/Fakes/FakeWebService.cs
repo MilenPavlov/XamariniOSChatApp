@@ -95,6 +95,11 @@ namespace XamChat.Core.Fakes
             return message;
         }
 
+        public async Task RefisterPush(string userId, string deviceToken)
+        {
+            await Sleep();
+        }
+
         #endregion
     }
 }

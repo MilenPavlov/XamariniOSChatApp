@@ -73,6 +73,9 @@
     <Compile Include="Application.cs" />
     <Compile Include="Azure\AzureWebService.cs" />
     <Compile Include="Azure\Friend.cs" />
+    <Compile Include="GCM\PushConstants.cs" />
+    <Compile Include="GCM\PushReceiver.cs" />
+    <Compile Include="GCM\PushService.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -118,6 +121,10 @@
     <AndroidResource Include="Resources\drawable\chaticon.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PushSharp-master\PushSharp.Client\PushSharp.Client.MonoForAndroid.Gcm\PushSharp.Client.MonoForAndroid.Gcm.csproj">
+      <Project>{1466d096-69fa-4b75-bbb6-533ffaf5d4eb}</Project>
+      <Name>PushSharp.Client.MonoForAndroid.Gcm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XamChat.Core\XamChat.Core.csproj">
       <Project>{6060fd09-48b9-4491-b977-c3f4eec682b2}</Project>
       <Name>XamChat.Core</Name>
